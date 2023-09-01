@@ -1,9 +1,13 @@
 package com.example.moviedatabase
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.moviedatabase.domain.ApiMovie
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainViewModel {
+@HiltViewModel
+class MainViewModel @Inject constructor(): ViewModel()  {
 
     var movies: MutableLiveData<List<ApiMovie>> = MutableLiveData()
 
