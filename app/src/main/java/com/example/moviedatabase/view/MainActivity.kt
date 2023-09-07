@@ -1,12 +1,13 @@
-package com.example.moviedatabase
+package com.example.moviedatabase.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import androidx.activity.viewModels
 import com.example.moviedatabase.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.moviedatabase.view.MovieAdapter
+import com.example.moviedatabase.viewmodel.MainViewModel
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.moviedatabase.domain
+package com.example.moviedatabase.model
 
 data class ApiMovie(
     val adult: Boolean,

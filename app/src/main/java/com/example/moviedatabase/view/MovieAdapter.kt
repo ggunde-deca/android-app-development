@@ -1,4 +1,4 @@
-package com.example.moviedatabase
+package com.example.moviedatabase.view
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.moviedatabase.Constants.MOVIE_PATH
 import com.example.moviedatabase.databinding.MovieItemBinding
-import com.example.moviedatabase.domain.ApiMovie
+import com.example.moviedatabase.model.ApiMovie
 
 
 class MovieAdapter() :

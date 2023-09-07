@@ -1,8 +1,8 @@
-package com.example.moviedatabase
+package com.example.moviedatabase.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.moviedatabase.domain.ApiMovie
+import com.example.moviedatabase.model.ApiMovie
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

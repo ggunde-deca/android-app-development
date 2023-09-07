@@ -1,6 +1,6 @@
 package com.example.moviedatabase.api.domain
 
-import com.example.moviedatabase.domain.ApiMovie
+import com.example.moviedatabase.model.ApiMovie
 
 data class ApiMovieList(
     val page: Int,
