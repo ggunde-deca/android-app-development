@@ -51,6 +51,9 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:2.44")
     kapt ("com.google.dagger:hilt-compiler:2.44")
 
+    // Kotlin Fragment
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
+
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
