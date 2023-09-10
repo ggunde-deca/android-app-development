@@ -9,11 +9,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moviedatabase.databinding.RecycleFragmentBinding
 import com.example.moviedatabase.viewmodel.MainViewModel
 import androidx.fragment.app.viewModels
+import com.example.moviedatabase.R
 
 
-class RecycleFragment: Fragment() {
-    // assign the _binding variable initially to null and
-    // also when the view is destroyed again it has to be set to null
+class RecycleFragment: Fragment(R.layout.recycle_fragment) {
     private lateinit var _binding: RecycleFragmentBinding
 
     val viewmodel: MainViewModel by viewModels()
