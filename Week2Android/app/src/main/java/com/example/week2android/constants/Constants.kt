@@ -1,8 +1,8 @@
-package com.example.moviedatabase
+package com.example.week2android.constants
 
 object Constants {
     const val BASE_URL = "https://api.themoviedb.org/3/"
-    const val MOVIE_PATH = "https://image.tmdb.org/t/p/original/"
+    const val MOVIE_PATH = "https://image.tmdb.org/t/p/original"
 
 
     //folder
