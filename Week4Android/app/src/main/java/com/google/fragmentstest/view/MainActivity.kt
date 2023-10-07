@@ -1,6 +1,7 @@
 package com.google.fragmentstest.view
 
 import android.os.Bundle
+import android.os.StrictMode
 import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         Log.i("HARRY", "onCreate")
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show()
         super.onCreate(savedInstanceState)
+
+        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+        StrictMode.setThreadPolicy(policy)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

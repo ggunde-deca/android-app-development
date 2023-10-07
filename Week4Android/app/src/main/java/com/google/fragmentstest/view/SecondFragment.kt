@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.google.fragmentstest.viewmodel.CountViewModel
+import com.bumptech.glide.Glide
+import com.google.fragmentstest.viewmodel.ImageViewModel
 import com.google.fragmentstest.R
 import com.google.fragmentstest.databinding.FragmentSecondBinding
+import com.google.fragmentstest.viewmodel.getImageUsingRetrofit
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -17,7 +19,7 @@ import com.google.fragmentstest.databinding.FragmentSecondBinding
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
-    private val viewModel: CountViewModel by activityViewModels() // why val because object forces us to amke it immutable
+    private val viewModel: ImageViewModel by activityViewModels() // why val because object forces us to amke it immutable
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -42,17 +44,25 @@ class SecondFragment : Fragment() {
         }
 
         // lifecycleowner -> provides a way to unsubscribe when we the app / page / fragment is not used
-        viewModel.getCount().observe(viewLifecycleOwner) {
-            binding.textCount.text = it.toString()
+        viewModel.getImageUrl().observe(viewLifecycleOwner) {
+            setImageUsingGlide(binding,getImageUsingRetrofit(it.toString())!!)
         }
 
         binding.btnDecrement.setOnClickListener {
-            viewModel.decrement()
+            // viewModel.decrement()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setImageUsingGlide(binding: FragmentSecondBinding, imageURL: String) {
+        Glide
+            .with(this)
+            .load(imageURL)
+            .centerCrop()
+            .into(binding.imageView);
     }
 }

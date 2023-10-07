@@ -40,12 +40,12 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="147dp" />
 
-        <TextView
+        <EditText
             android:id="@+id/textview_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Fragment First"
+            android:text="iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
