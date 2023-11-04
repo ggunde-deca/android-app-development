@@ -5,9 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.RecyclerView
 
-class ImagesRecyclerViewAdapter(private var dataSet: Array<String>) :
+class ImagesRecyclerViewAdapter(private var dataSet: Array<StringImageItem>) :
     RecyclerView.Adapter<ImagesRecyclerViewAdapter.ViewHolder>() {
 
     /**
@@ -16,10 +17,12 @@ class ImagesRecyclerViewAdapter(private var dataSet: Array<String>) :
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
+        val imageView: ImageView
 
         init {
             // Define click listener for the ViewHolder's View
             textView = view.findViewById(R.id.textView)
+            imageView = view.findViewById(R.id.imageView)
         }
     }
 
@@ -32,7 +35,7 @@ class ImagesRecyclerViewAdapter(private var dataSet: Array<String>) :
         return ViewHolder(view)
     }
 
-    fun setItems(dataSet: Array<String>) {
+    fun setItems(dataSet: Array<StringImageItem>) {
         this.dataSet = dataSet // one item less you will be able to -> animation
         notifyDataSetChanged() // less efficient you're chanign the entire list
     }
@@ -42,7 +45,8 @@ class ImagesRecyclerViewAdapter(private var dataSet: Array<String>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.textView.text = dataSet[position]
+        viewHolder.textView.text = dataSet[position].name
+        viewHolder.imageView.setImageDrawable(getDrawable(viewHolder.itemView.context, dataSet[position].imageIdentifier))
     }
 
     // Return the size of your dataset (invoked by the layout manager)

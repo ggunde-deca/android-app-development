@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val dataset = arrayOf("January", "February", "March")
+        val dataset = arrayOf(StringImageItem("January", androidx.appcompat.R.drawable.abc_btn_check_material), StringImageItem("February", R.drawable.ic_launcher_foreground), StringImageItem("March", R.drawable.ic_launcher_background))
         val customAdapter = ImagesRecyclerViewAdapter(dataset)
 
         val recyclerView: RecyclerView = binding.imagesRecyclerView
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = customAdapter
 
 
-        val dataset2 = arrayOf("enero", "febrero", "marzo", "abril")
+        val dataset2 = arrayOf(StringImageItem("enero", androidx.appcompat.R.drawable.abc_btn_check_material), StringImageItem("febrero", R.drawable.ic_launcher_foreground), StringImageItem("marzo", R.drawable.ic_launcher_background), StringImageItem("abril", androidx.appcompat.R.drawable.abc_btn_radio_material))
 
         // todo in a button
         customAdapter.setItems(dataset2)
