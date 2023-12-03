@@ -40,17 +40,6 @@ class MainActivity : ComponentActivity() {
         binding.progressBar.isVisible = false
         setContentView(binding.root)
 
-//        setContent {
-//            ClearSkyTheme {
-//                // A surface container using the 'background' color from the theme
-//                Surface(
-//                    modifier = Modifier.fillMaxSize(),
-//                    color = MaterialTheme.colorScheme.background
-//                ) {
-//                    Greeting("Android")
-//                }
-//            }
-//        }
     }
 
     private fun setImageUsingGlide(binding: ActivityMainBinding, imageURL: String) {
@@ -104,21 +93,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ClearSkyTheme {
-        Greeting("Android")
     }
 }
