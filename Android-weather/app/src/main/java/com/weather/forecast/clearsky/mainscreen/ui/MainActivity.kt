@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         binding.textView.setOnEditorActionListener { v, actionId, _ ->
-            viewModel.getWeatherData(v.toString())
+            viewModel.getWeatherData(v.text.toString())
                 .observe(this, getWeatherDataObserver(v.text.toString()))
             return@setOnEditorActionListener false
         }
@@ -67,6 +67,9 @@ class MainActivity : ComponentActivity() {
 
                 is ResultData.Loading -> {
                     Log.d("TAG", "onCreate: Loading")
+                    binding.temperature.text = ""
+                    binding.windSpeed.text = ""
+                    binding.humidity.text = ""
                 }
             }
         }
