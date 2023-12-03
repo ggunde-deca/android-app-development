@@ -39,7 +39,6 @@ class MainActivity : ComponentActivity() {
         }
         binding.progressBar.isVisible = false
         setContentView(binding.root)
-
     }
 
     private fun setImageUsingGlide(binding: ActivityMainBinding, imageURL: String) {
@@ -56,9 +55,9 @@ class MainActivity : ComponentActivity() {
                 is ResultData.Success -> {
                     Log.i("harry", "" + it.toString())
                     it.data?.let { it1 -> Log.d("TAG", "onCreate: $it1") }
-                    binding.temperature.text = it.data!!.current.temp_f.toString()
-                    binding.windSpeed.text = it.data!!.current.wind_mph.toString()
-                    binding.humidity.text = it.data!!.current.humidity.toString()
+                    binding.temperature.text = it.data!!.current.temp_f.toString() + " F"
+                    binding.windSpeed.text = it.data!!.current.wind_mph.toString() + " mph"
+                    binding.humidity.text = it.data!!.current.humidity.toString() + " %"
                     viewModel.getWeatherImage(v, it.data!!.current.condition.text).observe(this, getWeatherImageObserver())
                 }
 
@@ -89,6 +88,7 @@ class MainActivity : ComponentActivity() {
 
                 is ResultData.Loading -> {
                     Log.d("TAG", "onCreateImage: Loading")
+                    binding.imageView.setImageDrawable(null)
                     binding.progressBar.isVisible = true
                 }
             }

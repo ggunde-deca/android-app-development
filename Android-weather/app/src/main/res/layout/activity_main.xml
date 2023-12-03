@@ -10,11 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter City Name"
+        android:singleLine="true"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@id/linear_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:singleLine="true" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linear_layout"
@@ -31,7 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="Temperature F"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/humidity"
@@ -39,7 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="Humidity"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/wind_speed"
@@ -47,14 +50,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="Wind Speed"
-            android:textAlignment="center"/>
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
