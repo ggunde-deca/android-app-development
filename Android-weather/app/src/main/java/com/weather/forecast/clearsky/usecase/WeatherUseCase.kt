@@ -20,13 +20,13 @@ class WeatherUseCase @Inject constructor(
             val weatherModel = weatherRepository.getWeatherData(city)
 
             val resultData = if (weatherModel == null) {
-                ResultData.Failed()
+                ResultData.Failed("The city name is invalid. Could not retrieve weather conditions")
             } else {
                 ResultData.Success(weatherModel)
             }
             emit(resultData)
         }.catch {
-            emit(ResultData.Failed())
+            emit(ResultData.Failed(it.message + ": " + "Could not retrieve weather conditions"))
         }
     }
 
@@ -37,14 +37,14 @@ class WeatherUseCase @Inject constructor(
             val weatherModel = weatherRepository.getWeatherImageData(city, condition)
 
             val resultData = if (weatherModel == null) {
-                ResultData.Failed()
+                ResultData.Failed("The city name is invalid. Could not retrieve weather image")
             } else {
                 ResultData.Success(weatherModel)
             }
             emit(resultData)
         }.catch {
             Log.d("TAG", "onCreateException: $it")
-            emit(ResultData.Failed())
+            emit(ResultData.Failed(it.message + ": " + "Could not retrieve weather image"))
         }
     }
 }

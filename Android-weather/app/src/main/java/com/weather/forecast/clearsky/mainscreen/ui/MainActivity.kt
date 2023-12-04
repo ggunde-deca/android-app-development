@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.compose.material3.Text
@@ -63,6 +65,7 @@ class MainActivity : ComponentActivity() {
 
                 is ResultData.Failed -> {
                     Log.d("TAG", "onCreate: failed ${it.message}")
+                    Toast.makeText(this, it.message!!, LENGTH_LONG).show()
                 }
 
                 is ResultData.Loading -> {
@@ -80,13 +83,14 @@ class MainActivity : ComponentActivity() {
                 is ResultData.Success -> {
                     Log.i("harry", "onCreateImage: $itimage")
                     itimage.data?.let { it1 -> Log.d("TAG", "onCreate: $it1") }
-                    // binding.textView.setText(itimage.toString())
                     setImageUsingGlide(binding, itimage.data!!.image_url)
                     binding.progressBar.isVisible = false
                 }
 
                 is ResultData.Failed -> {
                     Log.d("TAG", "onCreateImage: failed ${itimage.message}")
+                    Toast.makeText(this, itimage.message!!, LENGTH_LONG).show()
+                    binding.progressBar.isVisible = false
                 }
 
                 is ResultData.Loading -> {
