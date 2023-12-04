@@ -1,10 +1,11 @@
 import openai as openai
 from flask import Flask, jsonify, request, send_file
+import os
 
 app = Flask(__name__)
 
 # Replace 'YOUR_API_KEY' with your actual API key
-api_key = "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"
+api_key = os.environ["OPENAI_API_KEY"] if os.environ.get("OPENAI_API_KEY") else print("Open AI key not set. Set the key as an environment variable 'OPENAI_API_KEY'"); exit()
 
 # Initialize the OpenAI API client
 openai.api_key = api_key
