@@ -12,8 +12,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private val useCase: WeatherUseCase) : ViewModel() {
-    fun getWeatherData(city: String): LiveData<ResultData<WeatherModel>> {
-        return useCase.getWeatherData(city).asLiveData()
+    fun getWeatherData(weatherAPIKey: String, city: String): LiveData<ResultData<WeatherModel>> {
+        return useCase.getWeatherData(weatherAPIKey, city).asLiveData()
     }
 
     fun getWeatherImage(city: String, condition: String): LiveData<ResultData<WeatherImageModel>> {

@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
+import com.weather.forecast.clearsky.R
 import com.weather.forecast.clearsky.databinding.ActivityMainBinding
 import com.weather.forecast.clearsky.mainscreen.viewmodel.MainViewModel
 import com.weather.forecast.clearsky.model.WeatherImageModel
@@ -35,7 +36,7 @@ class MainActivity : ComponentActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         binding.textView.setOnEditorActionListener { v, actionId, _ ->
-            viewModel.getWeatherData(v.text.toString())
+            viewModel.getWeatherData(resources.getString(R.string.weather_API_key), v.text.toString())
                 .observe(this, getWeatherDataObserver(v.text.toString()))
             return@setOnEditorActionListener false
         }

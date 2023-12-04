@@ -6,8 +6,8 @@ import com.weather.forecast.clearsky.network.WeatherApiService
 import javax.inject.Inject
 
 class WeatherRepository @Inject constructor(private val weatherApiService: WeatherApiService) {
-    suspend fun getWeatherData(city:String): WeatherModel? {
-        return weatherApiService.getWeatherData(city)
+    suspend fun getWeatherData(weatherAPIKey: String, city:String): WeatherModel? {
+        return weatherApiService.getWeatherData(weatherAPIKey, city)
     }
 
     suspend fun getWeatherImageData(city:String, condition: String): WeatherImageModel? {

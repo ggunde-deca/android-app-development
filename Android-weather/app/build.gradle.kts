@@ -1,9 +1,14 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
 }
+
+
+val weather_API_key: String = gradleLocalProperties(rootDir).getProperty("weather.api.key")
 
 android {
     namespace = "com.weather.forecast.clearsky"
@@ -23,12 +28,16 @@ android {
     }
 
     buildTypes {
+        debug {
+            resValue("string", "weather_API_key", weather_API_key)
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            resValue("string", "weather_API_key", weather_API_key)
         }
     }
     compileOptions {
